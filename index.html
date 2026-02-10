@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday ✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Soft background overlay for overall mood -->
+  <div class="page-bg"></div>
+    <!-- Global floating hearts across the whole page -->
+  <div class="floating-hearts-page">
+    <span class="page-heart page-heart-1">♥</span>
+    <span class="page-heart page-heart-2">♥</span>
+    <span class="page-heart page-heart-3">♥</span>
+    <span class="page-heart page-heart-4">♥</span>
+    <span class="page-heart page-heart-5">♥</span>
+    <span class="page-heart page-heart-6">♥</span>
+  </div>
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-inner fade-in">
+      <div class="floating-hearts">
+        <!-- These are decorative elements animated with CSS -->
+        <span class="heart heart-1">♥</span>
+        <span class="heart heart-2">♥</span>
+        <span class="heart heart-3">♥</span>
+        <span class="sparkle sparkle-1">✧</span>
+        <span class="sparkle sparkle-2">✦</span>
+      </div>
+
+      <p class="hero-tag">For Honey</p>
+      <h1 class="hero-title">Happy 22nd Birthday pr my Dear ✨</h1>
+      <p class="hero-subtitle">Just something small… but made for you.</p>
+
+      <a href="#message" class="hero-scroll">
+        <span>Scroll down</span>
+        <span class="hero-scroll-line"></span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Message Section -->
+    <section class="section message-section" id="message">
+      <div class="section-inner">
+        <h2 class="section-title">A little note</h2>
+        <p class="section-subtitle">Nothing crazy, just what I honestly feel.</p>
+
+        <!-- This text is revealed with a typing / fade-up effect via JS -->
+        <div class="message-card reveal-on-scroll">
+          <p class="message-text" id="typed-message">
+            <!-- JS will type this text in -->
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moments Section -->
+    <section class="section moments-section" id="moments">
+      <div class="section-inner">
+        <h2 class="section-title">Our Little moments</h2>
+        <p class="section-subtitle">Some snapshots that still make me smile...</p>
+
+        <div class="moments-grid">
+          <!-- Use placeholder images; you can replace src with your own -->
+          <article class="moment-card reveal-on-scroll">
+            <div class="moment-image-wrapper">
+              <img src="0AAE34A4-5095-4716-BDA5-553AFEFB1165.JPG" alt="Nice moment placeholder" />
+            </div>
+            <p class="moment-caption">သဘောအကျရဆုံးပုံလေး 💗</p>
+          </article>
+
+          <article class="moment-card reveal-on-scroll">
+            <div class="moment-image-wrapper">
+              <img src="IMG_7783.PNG" alt="Nice moment placeholder" />
+            </div>
+            <p class="moment-caption">ပထမဆုံး စကားပြန်ပြောကြတဲ့နေ့လေးကို မမေ့ဘူး 💗</p>
+          </article>
+
+          <article class="moment-card reveal-on-scroll">
+            <div class="moment-image-wrapper">
+              <img src="IMG_5312.PNG" alt="Nice moment placeholder" />
+            </div>
+            <p class="moment-caption">အပြင်မှာ မတွေ့ရသေးခင်ထိတော့ ဒါလေးတွေနဲ့ပဲ ကျေနပ်ရဦးမယ် 💗</p>
+          </article>
+
+          <article class="moment-card reveal-on-scroll">
+            <div class="moment-image-wrapper">
+              <img src="IMG_7125.JPG" alt="Nice moment placeholder" />
+            </div>
+            <p class="moment-caption">ပုံတွေအများကြီးထဲကမှ အကြိုက်ဆုံး mirror selfie 💗 </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="section reasons-section" id="reasons">
+      <div class="section-inner">
+        <h2 class="section-title">Things I like about you</h2>
+        <p class="section-subtitle">Just a few, keeping it simple.</p>
+
+        <ul class="reasons-list">
+          <li class="reason-item reveal-on-scroll">
+            <span class="reason-dot"></span>
+            <div>
+              <p class="reason-title">ရှက်တတ်တဲ့မမ</p>
+              <p class="reason-text">VC ပြောနေတုန်း စလိုက်ရင် ရှက်ပီး စောင်လေးနဲ့အုပ်သွားတာလေးတွေ</p>
+            </div>
+          </li>
+          <li class="reason-item reveal-on-scroll">
+            <span class="reason-dot"></span>
+            <div>
+              <p class="reason-title">ချွဲတတ်တယ်တော့ပြောတာပါပဲ</p>
+              <p class="reason-text">သူ့ကြည့်တော့ တော်တော်များများ ရေခဲတုံးလို နေနေပီး</p>
+            </div>
+          </li>
+          <li class="reason-item reveal-on-scroll">
+            <span class="reason-dot"></span>
+            <div>
+              <p class="reason-title">သူများတွေကို အတင်းတုပ်နေတဲ့ အချိန်လေးတွေ</p>
+              <p class="reason-text">ကျောင်းက ဆရာ့ကိုပါမချန် မောင့်စီ အတင်းတုပ်တတ် တဲ့ကောင်မလေး 💗 </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Small Surprise Section -->
+    <section class="section surprise-section" id="surprise">
+      <div class="section-inner">
+        <h2 class="section-title">Small surprise</h2>
+        <p class="section-subtitle">Nothing huge, just one last little thing.</p>
+
+        <button class="surprise-button" id="surprise-button">
+          One last thing
+        </button>
+
+        <!-- This message appears after the button is clicked -->
+        <div class="surprise-message" id="surprise-message">
+          <p> “Somehow, you became important to me.” 💗</p>
+        </div>
+
+        <!-- Canvas for simple confetti effect -->
+        <canvas id="confetti-canvas"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">Enjoy your day 🌙</p>
+  </footer>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>

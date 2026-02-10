@@ -1,0 +1,611 @@
+/* 
+  Global styles
+  -------------
+  Soft gradients, gentle spacing, and modern typography.
+*/
+
+:root {
+  /* Soft romantic palette */
+  --bg-gradient: radial-gradient(circle at top left, #fde1e6 0%, #f3e9ff 35%, #faf3e7 70%, #ffffff 100%);
+  --accent-pink: #f29fb4;
+  --accent-lilac: #c3b3ff;
+  --accent-gold: #f5d59c;
+  --text-main: #3d2f3a;
+  --text-soft: #85748b;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(255, 255, 255, 0.8);
+  --shadow-soft: 0 18px 45px rgba(53, 37, 58, 0.18);
+
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-pill: 999px;
+
+  --font-sans: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", "Times New Roman", serif;
+
+  --transition-fast: 180ms ease-out;
+  --transition-med: 260ms ease-out;
+}
+
+/* Reset-ish base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background: #fdf7ff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Very soft page background overlay */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-gradient);
+  z-index: -2;
+}
+
+/* Generic section layout */
+.section {
+  padding: 5rem 1.5rem 4.5rem;
+}
+
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.section-subtitle {
+  margin: 0 0 2.5rem;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+}
+
+/* Hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.5rem 3rem;
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 960px;
+  width: 100%;
+  position: relative;
+  padding: 3.5rem 2.5rem 3rem;
+  border-radius: 32px;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.75)
+    );
+  box-shadow: 0 26px 65px rgba(51, 33, 63, 0.22);
+  overflow: hidden;
+}
+
+/* Tag above hero title */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(242, 159, 180, 0.4);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.03em;
+}
+
+.hero-subtitle {
+  margin: 0 0 2.2rem;
+  max-width: 26rem;
+  color: var(--text-soft);
+}
+
+/* Scroll cue */
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.hero-scroll-line {
+  width: 32px;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-lilac));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  width: 40%;
+  transform: translateX(-100%);
+  animation: scroll-glow 2.5s infinite;
+}
+
+/* Floating hearts & sparkles */
+.floating-hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heart,
+.sparkle {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.7;
+  color: var(--accent-pink);
+}
+
+/* You can adjust positions to taste */
+.heart-1 {
+  top: 65%;
+  left: 4%;
+  animation: float-up 12s infinite ease-in-out;
+  font-size: 1.3rem;
+}
+
+.heart-2 {
+  top: 18%;
+  right: 18%;
+  animation: float-up 10s infinite ease-in-out;
+}
+
+.heart-3 {
+  bottom: 10%;
+  right: 7%;
+  animation: float-up 14s infinite ease-in-out;
+}
+
+.sparkle-1 {
+  top: 15%;
+  left: 12%;
+  color: var(--accent-gold);
+  animation: soft-pulse 3s infinite ease-in-out;
+}
+
+.sparkle-2 {
+  bottom: 18%;
+  left: 38%;
+  color: var(--accent-lilac);
+  animation: soft-pulse 3.8s infinite ease-in-out;
+}
+
+/* Message section */
+.message-section {
+  padding-top: 4rem;
+}
+
+.message-card {
+  max-width: 620px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
+  padding: 2.4rem 2rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.message-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(242, 159, 180, 0.22), transparent 60%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.message-text {
+  position: relative;
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  white-space: pre-line; /* preserve line breaks */
+}
+
+/* Moments section */
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.8rem;
+}
+
+.moment-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 35px rgba(65, 53, 78, 0.16);
+  overflow: hidden;
+  transform-origin: center;
+  transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), translate var(--transition-med);
+  cursor: default;
+}
+
+.moment-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.moment-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 240ms ease-out, filter 240ms ease-out;
+}
+
+.moment-caption {
+  padding: 0.9rem 1.15rem 1.1rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* Hover effect for cards */
+.moment-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 18px 45px rgba(45, 32, 58, 0.3);
+  background: linear-gradient(135deg, rgba(242, 159, 180, 0.09), rgba(195, 179, 255, 0.09));
+}
+
+.moment-card:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.2);
+}
+
+/* Reasons section */
+.reasons-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.reason-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(243, 231, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(53, 39, 63, 0.15);
+}
+
+.reason-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 0.7rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 20% 20%, #fff, var(--accent-pink));
+  box-shadow: 0 0 0 4px rgba(242, 159, 180, 0.2);
+}
+
+.reason-title {
+  margin: 0 0 0.15rem;
+  font-weight: 500;
+}
+
+.reason-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+/* Surprise section */
+.surprise-section {
+  padding-bottom: 6rem;
+}
+
+.surprise-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0.9rem 2.3rem;
+  font-size: 0.96rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-lilac));
+  color: #fff;
+  box-shadow: 0 14px 38px rgba(186, 115, 171, 0.6);
+  overflow: hidden;
+  transition: transform var(--transition-med), box-shadow var(--transition-med), filter var(--transition-med);
+}
+
+.surprise-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.9), transparent 55%);
+  opacity: 0;
+  transition: opacity 220ms ease-out;
+}
+
+.surprise-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(159, 96, 163, 0.65);
+  filter: brightness(1.02);
+}
+
+.surprise-button:hover::after {
+  opacity: 1;
+}
+
+.surprise-button:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 26px rgba(159, 96, 163, 0.6);
+}
+
+/* Message revealed after button click */
+.surprise-message {
+  margin-top: 1.8rem;
+  padding: 1.3rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(243, 231, 255, 0.95);
+  box-shadow: 0 14px 38px rgba(61, 41, 72, 0.2);
+  max-width: 480px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity var(--transition-med), transform var(--transition-med);
+  font-size: 0.98rem;
+  color: var(--text-main);
+}
+
+.surprise-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* so it doesn't block clicking */
+  z-index: 20;
+}
+
+/* Footer */
+.footer {
+  padding: 1.8rem 1.5rem 2.4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+/* Fade-in / reveal animations using IntersectionObserver */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: initial-fade 1s ease-out forwards;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease-out, transform 520ms ease-out;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyframes */
+@keyframes initial-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-26px) translateX(8px);
+  }
+  100% {
+    transform: translateY(-60px) translateX(-6px);
+    opacity: 0;
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-glow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(260%);
+    opacity: 0;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 720px) {
+  .hero-inner {
+    padding: 2.4rem 1.7rem 2.6rem;
+  }
+
+  .message-card {
+    padding: 2rem 1.6rem;
+  }
+
+  .moments-grid {
+    gap: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 2.4rem;
+  }
+
+  .hero-title {
+    font-size: 2.15rem;
+  }
+
+  .section {
+    padding-inline: 1.25rem;
+  }
+
+  .moment-image-wrapper img {
+    height: 165px;
+  }
+}
+/* Hearts floating softly across the whole page background */
+.floating-hearts-page {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* don’t block clicks */
+  z-index: -1;          /* above gradient, behind content */
+  overflow: hidden;
+}
+
+/* Base style for each page heart */
+.page-heart {
+  position: absolute;
+  color: var(--accent-pink);
+  opacity: 0.4;
+  font-size: 1.4rem;
+  filter: blur(0.2px);
+}
+
+/* Each heart has its own path / speed */
+.page-heart-1 {
+  left: 8%;
+  animation: float-page 26s linear infinite;
+}
+
+.page-heart-2 {
+  left: 24%;
+  animation: float-page 32s linear infinite;
+  animation-delay: -4s;
+  font-size: 1.7rem;
+  opacity: 0.45;
+}
+
+.page-heart-3 {
+  left: 42%;
+  animation: float-page 28s linear infinite;
+  animation-delay: -10s;
+  font-size: 1.3rem;
+}
+
+.page-heart-4 {
+  left: 60%;
+  animation: float-page 34s linear infinite;
+  animation-delay: -7s;
+  font-size: 1.9rem;
+  opacity: 0.5;
+}
+
+.page-heart-5 {
+  left: 76%;
+  animation: float-page 30s linear infinite;
+  animation-delay: -16s;
+  font-size: 1.5rem;
+}
+
+.page-heart-6 {
+  left: 90%;
+  animation: float-page 38s linear infinite;
+  animation-delay: -12s;
+  font-size: 1.2rem;
+  opacity: 0.35;
+}
+
+/* Vertical drift from bottom to top with a gentle sway */
+@keyframes float-page {
+  0% {
+    transform: translate3d(0, 120vh, 0) translateX(0);
+  }
+  25% {
+    transform: translate3d(-10px, 80vh, 0);
+  }
+  50% {
+    transform: translate3d(8px, 40vh, 0);
+  }
+  75% {
+    transform: translate3d(-12px, 10vh, 0);
+  }
+  100% {
+    transform: translate3d(6px, -20vh, 0);
+  }
+}
