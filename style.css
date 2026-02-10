@@ -272,12 +272,12 @@ body {
 .moment-image-wrapper img {
   display: block;
   width: 100%;
-  height: 180px;
+  height: auto;          /* let height scale with width */
+  aspect-ratio: 4 / 3;   /* keeps a nice photo shape */
   object-fit: cover;
   transform: scale(1.02);
   transition: transform 240ms ease-out, filter 240ms ease-out;
 }
-
 .moment-caption {
   padding: 0.9rem 1.15rem 1.1rem;
   font-size: 0.95rem;
@@ -509,6 +509,13 @@ body {
 
   .moments-grid {
     gap: 1.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .moments-grid {
+    grid-template-columns: 1fr;  /* one card per row */
+    gap: 1.2rem;
   }
 }
 
