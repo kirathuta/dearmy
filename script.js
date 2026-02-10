@@ -168,28 +168,29 @@ function setupSurpriseButton() {
     ctx.globalAlpha = 1;
   }
 
-  button.addEventListener("click", (event) => {
-    // Reveal the sweet message (if it's not already visible)
-    if (!message.classList.contains("visible")) {
-      message.classList.add("visible");
-    }
+button.addEventListener("click", () => {
+  // If it's already open, close it and stop here
+  if (message.classList.contains("visible")) {
+    message.classList.remove("visible");
+    return;
+  }
 
-    // Where to center the confetti burst:
-    // use the button’s center on the screen
-    const rect = button.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
+  // Otherwise, open it and show confetti once
+  message.classList.add("visible");
 
-    createConfettiBurst(x, y);
+  // Center of the button for the confetti burst
+  const rect = button.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
 
-    // Start confetti animation
-    cancelAnimationFrame(animationFrameId);
-    renderConfetti();
+  createConfettiBurst(x, y);
 
-    // Tiny feedback on click
-    button.classList.add("clicked");
-    setTimeout(() => {
-      button.classList.remove("clicked");
-    }, 220);
-  });
+  cancelAnimationFrame(animationFrameId);
+  renderConfetti();
+
+  button.classList.add("clicked");
+  setTimeout(() => {
+    button.classList.remove("clicked");
+  }, 220);
+});
 }
